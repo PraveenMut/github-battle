@@ -1,37 +1,32 @@
 import * as React from "react";
+import LanguagesNav from "./LanguagesNav";
+
 
 export default class Popular extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        selectedLanguage: {}
-     }
+      selectedLanguage: {},
+    };
 
-     this.updateLanguage = this.updateLanguage.bind(this);
-     this.languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
+    this.updateLanguage = this.updateLanguage.bind(this);
   }
 
   updateLanguage(lang) {
     this.setState(({ selectedLanguage }) => ({
-        selectedLanguage: lang
-    }))
+      selectedLanguage: lang,
+    }));
   }
 
   render() {
     return (
-      <main>  
-      <select 
-      onChange={(e) => this.updateLanguage(e.target.value)} 
-      value={this.state.selectedLanguage}
-      >
-        {this.languages.map((lang) => (
-          <option key={lang} value={lang}>
-            {lang}
-          </option>
-        ))}
-      </select>
-      {JSON.stringify(this.state, null, 2)}
+      <main>
+        <LanguagesNav
+          updateLanguageHandler={this.updateLanguage}
+          selectedLanguage={this.state.selectedLanguage}
+        />
+        {JSON.stringify(this.state, null, 2)}
       </main>
     );
   }
