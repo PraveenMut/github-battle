@@ -19,7 +19,7 @@ const LanguagesNav = (props) => {
   );
 };
 
-LanguagesNav.PropTypes = {
+LanguagesNav.propTypes = {
     selectedLanguage: PropTypes.string.isRequired,
     updateLanguageHandler: PropTypes.func.isRequired,
 }
