@@ -2,7 +2,7 @@ import * as React from "react";
 import PropTypes from 'prop-types';
 
 const LanguagesNav = (props) => {
-  const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
+  const languages = ["All", "Rust", "JavaScript", "Ruby", "Java", "Kotlin", "CSS", "Python", "Go", "Haskell", "OCaml"];
   const { selectedLanguage, updateLanguageHandler } = props;
 
   return (
