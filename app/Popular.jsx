@@ -1,7 +1,7 @@
 import * as React from "react";
 import LanguagesNav from "./LanguagesNav";
 import Table from "./Table";
-import fetchRepos from "./utils/api/api";
+import { fetchRepos } from "./utils/api/api";
 
 export default class Popular extends React.Component {
   constructor(props) {
