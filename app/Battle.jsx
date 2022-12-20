@@ -2,6 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import PlayerInput from "./PlayerInput";
 import PlayerPreview from "./PlayerPreview";
+import Results from "./Results";
 
 const Instructions = () => {
   return (
@@ -23,10 +24,12 @@ export default class Battle extends React.Component {
     this.state = {
       playerOne: null,
       playerTwo: null,
+      battle: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleBattle = this.handleBattle.bind(this);
   }
 
   handleSubmit(id, player) {
@@ -36,13 +39,23 @@ export default class Battle extends React.Component {
   }
 
   handleReset(id) {
-    this.setState({ 
-        [id]: null,
+    this.setState({
+      [id]: null,
+    });
+  }
+
+  handleBattle() {
+    this.setState({
+      battle: true,
     })
   }
 
   render() {
     const disabled = !this.state.playerOne || !this.state.playerTwo;
+
+    if (this.state.battle) {
+      return <Results playerOne={this.state.playerOne} playerTwo={this.state.playerTwo} />;
+    }
 
     return (
       <main className="stack main-stack animate-in">
@@ -51,6 +64,7 @@ export default class Battle extends React.Component {
           <button
             href="#"
             className={`btn primary ${disabled ? "disabled" : ""}`}
+            onClick={this.handleBattle}
           >
             Battle
           </button>
