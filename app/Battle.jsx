@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import PlayerInput from "./PlayerInput";
+import PlayerPreview from "./PlayerPreview";
 
 const Instructions = () => {
   return (
@@ -25,12 +26,19 @@ export default class Battle extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleSubmit(id, player) {
     this.setState({
       [id]: player,
     });
+  }
+
+  handleReset(id) {
+    this.setState({ 
+        [id]: null,
+    })
   }
 
   render() {
@@ -40,10 +48,12 @@ export default class Battle extends React.Component {
       <main className="stack main-stack animate-in">
         <div className="split">
           <h1>Players</h1>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-          <a href="#" className={`btn primary ${disabled ? "disabled" : ""}`}>
+          <button
+            href="#"
+            className={`btn primary ${disabled ? "disabled" : ""}`}
+          >
             Battle
-          </a>
+          </button>
         </div>
         <section className="grid">
           {!this.state.playerOne ? (
@@ -51,13 +61,25 @@ export default class Battle extends React.Component {
               label="Player One"
               onSubmit={(player) => this.handleSubmit("playerOne", player)}
             />
-          ) : null}
+          ) : (
+            <PlayerPreview
+              label="Player One"
+              username={this.state.playerOne}
+              onReset={() => this.handleReset("playerOne")}
+            />
+          )}
           {!this.state.playerTwo ? (
             <PlayerInput
               label="Player Two"
               onSubmit={(player) => this.handleSubmit("playerTwo", player)}
             />
-          ) : null}
+          ) : (
+            <PlayerPreview
+              label="Player Two"
+              username={this.state.playerTwo}
+              onReset={() => this.handleReset("playerTwo")}
+            />
+          )}
         </section>
         <Instructions />
       </main>
