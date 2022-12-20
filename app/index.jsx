@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import Battle from "./Battle";
 import "./index.css";
 import Popular from "./Popular";
 
@@ -9,7 +10,7 @@ class App extends React.Component {
     return (
       <div className="light">
         <div className="container">
-          <Popular />
+          <Battle />
         </div>
       </div>
     );
