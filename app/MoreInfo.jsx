@@ -45,7 +45,6 @@ const MoreInfo = ({
     language: PropTypes.string,
     updated_at: PropTypes.string.isRequired,
     watchers: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
     login: PropTypes.string.isRequired,
   };
   
