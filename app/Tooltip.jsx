@@ -45,6 +45,11 @@ export default class Tooltip extends React.Component {
         {children}
       </div>
     )
-
   }
 }
+
+
+Tooltip.propTypes = {
+  children: PropTypes.node.isRequired,
+  element: PropTypes.node.isRequired,
+};
