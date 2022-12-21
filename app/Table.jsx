@@ -1,6 +1,8 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { hashSymbol } from "./icon";
+import Tooltip from "./Tooltip";
+import MoreInfo from "./MoreInfo";
 
 const TableHead = () => {
   return (
@@ -17,25 +19,44 @@ const TableHead = () => {
 };
 
 const TableRow = (props) => {
-  const { index, owner, stargazers_count, forks, open_issues, name } = props;
-  const { login: username, avatar_url } = owner;
-
-  console.log("in table row");
+  const {
+    index,
+    owner,
+    stargazers_count,
+    forks,
+    open_issues,
+    name,
+    created_at,
+    updated_at,
+    language,
+    watchers,
+  } = props;
+  const { login: username, avatar_url} = owner;
 
   return (
     <tr>
       <td>{index + 1}</td>
       <td>
-        <div className="row gap-md">
-          <img
-            width={32}
-            height={32}
-            className="avatar"
-            src={avatar_url}
-            alt={`Avatar of ${username}`}
+        <Tooltip element={
+          <MoreInfo
+            created_at={created_at}
+            language={language}
+            updated_at={updated_at}
+            watchers={watchers}
+            login={username}
           />
-          <a href={`https://github.com/${username}/${name}`}>{name}</a>
-        </div>
+        }>
+          <div className="row gap-md">
+            <img
+              width={32}
+              height={32}
+              className="avatar"
+              src={avatar_url}
+              alt={`Avatar of ${username}`}
+            />
+            <a href={`https://github.com/${username}/${name}`}>{name}</a>
+          </div>
+        </Tooltip>
       </td>
       <td>{stargazers_count}</td>
       <td>{forks}</td>
