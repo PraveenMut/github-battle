@@ -3,16 +3,22 @@ import * as ReactDOM from "react-dom/client";
 import Battle from "./Battle";
 import "./index.css";
 import Popular from "./Popular";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // JSX Style of React
 class App extends React.Component {
   render() {
     return (
-      <div className="light">
-        <div className="container">
-          <Popular />
+      <BrowserRouter>
+        <div className="light">
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Popular />} />
+              <Route path="/battle" element={<Battle />} />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

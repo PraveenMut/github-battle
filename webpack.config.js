@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index_bundle.js",
+    publicPath: "/",
   },
   // this tells webpack to perform cetain transformations
   // when bundling modules. The loaders like babel-loaders
@@ -34,4 +35,7 @@ module.exports = {
     }),
   ],
   mode: "development",
+  devServer: {
+    historyApiFallback: true,
+  },
 };
