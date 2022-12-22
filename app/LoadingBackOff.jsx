@@ -2,13 +2,9 @@ import * as React from "react";
 import PropTypes from "prop-types";
 
 export default class LoadingBackOff extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      visible: false,
-    };
-  }
+  state = {
+    visible: false,
+  };
 
   componentDidMount() {
     this.timeout = window.setTimeout(() => {
@@ -18,13 +14,12 @@ export default class LoadingBackOff extends React.Component {
 
   componentWillUnmount() {
     window.clearTimeout(this.timeout);
-  };
+  }
 
   render() {
     return this.state.show === true ? this.props.children : null;
   }
 }
-
 
 LoadingBackOff.defaultProps = {
   wait: 300,

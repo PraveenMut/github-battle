@@ -4,23 +4,17 @@ import Table from "./Table";
 import { fetchRepos } from "./utils/api/api";
 
 export default class Popular extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedLanguage: "All",
-      repos: [],
-      error: null,
-    };
-
-    this.updateLanguage = this.updateLanguage.bind(this);
-  }
+  state = {
+    selectedLanguage: "All",
+    repos: [],
+    error: null,
+  };
 
   componentDidMount() {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
-  async updateLanguage(lang) {
+  updateLanguage = async (lang) => {
     try {
       const fetchedRepos = await fetchRepos(lang);
       this.setState(({ selectedLanguage, repos, error }) => ({
@@ -36,7 +30,7 @@ export default class Popular extends React.Component {
         error: "There was an error fetching repositories.",
       }));
     }
-  }
+  };
 
   render() {
     return (

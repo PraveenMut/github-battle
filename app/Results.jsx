@@ -5,16 +5,13 @@ import { battle } from "./utils/api/api";
 import withSearchParams from "./withSearchParams";
 
 class Results extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    winner: null,
+    runnerup: null,
+    error: null,
+    loading: true,
+  };
 
-    this.state = {
-      winner: null,
-      runnerup: null,
-      error: null,
-      loading: true,
-    };
-  }
   async componentDidMount() {
     const searchParameters = this.props.router.searchParams;
     const playerOne = searchParameters.get("playerOne");

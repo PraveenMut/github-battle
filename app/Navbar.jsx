@@ -37,9 +37,9 @@ const Navbar = (props) => (
   </nav>
 );
 
-Navbar.PropTypes = {
-  theme: PropTypes.string.isRequired,
-  toggletheme: PropTypes.func.isRequired,
+Navbar.propTypes = {
+  theme: PropTypes.string,
+  toggletheme: PropTypes.func,
 };
 
 export default Navbar;

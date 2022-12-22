@@ -9,17 +9,11 @@ import Results from "./Results"
 
 // JSX Style of React
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    theme: "light",
+  };
 
-    this.state = {
-      theme: "light",
-    };
-
-    this.toggleTheme = this.toggleTheme.bind(this);
-  }
-
-  toggleTheme() {
+  toggleTheme = () => {
     this.setState((prevState) => ({
       theme: prevState.theme == "light" ? "dark" : "light",
     }));
