@@ -2,8 +2,9 @@ import * as React from "react";
 import Loading from "./Loading";
 import ResultsCard from "./ResultsCard";
 import { battle } from "./utils/api/api";
+import withSearchParams from "./withSearchParams";
 
-export default class Results extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +16,9 @@ export default class Results extends React.Component {
     };
   }
   async componentDidMount() {
-    const { playerOne, playerTwo } = this.props;
+    const searchParameters = this.props.router.searchParams;
+    const playerOne = searchParameters.get("playerOne");
+    const playerTwo = searchParameters.get("playerTwo");
 
     try {
       const [winner, runnerup] = await battle([playerOne, playerTwo]);
@@ -81,3 +84,5 @@ export default class Results extends React.Component {
     );
   }
 }
+
+export default withSearchParams(Results);

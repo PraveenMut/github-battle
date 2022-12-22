@@ -5,6 +5,7 @@ import "./index.css";
 import Popular from "./Popular";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
+import Results from "./Results"
 
 // JSX Style of React
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
             <Routes>
               <Route path="/" element={<Popular />} />
               <Route path="/battle" element={<Battle />} />
+              <Route path="/results" element={<Results />} />
             </Routes>
           </div>
         </div>
