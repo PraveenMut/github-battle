@@ -3,7 +3,7 @@ import Loading from "./Loading";
 import ResultsCard from "./ResultsCard";
 import { battle } from "../../utils/api/api";
 import withSearchParams from "./withSearchParams";
-
+import { Link } from 'react-router-dom';
 class Results extends React.Component {
   state = {
     winner: null,
@@ -45,6 +45,9 @@ class Results extends React.Component {
       <main className="animate-in stack main-stack">
         <div className="split">
           <h1>Results</h1>
+          <Link to="/battle" className="btn secondary">
+            Reset
+          </Link>
         </div>
         <section className="grid">
           <article className="results-container">
