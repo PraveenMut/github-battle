@@ -19,21 +19,21 @@ const Instructions = () => {
 
 export default class Battle extends React.Component {
   state = {
-      playerOne: null,
-      playerTwo: null,
-    };
+    playerOne: null,
+    playerTwo: null,
+  };
 
   handleSubmit = (id, player) => {
     this.setState({
       [id]: player,
     });
-  }
+  };
 
   handleReset = (id) => {
     this.setState({
       [id]: null,
     });
-  }
+  };
 
   render() {
     const disabled = !this.state.playerOne || !this.state.playerTwo;

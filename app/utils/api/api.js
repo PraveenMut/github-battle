@@ -23,7 +23,7 @@ const getErrorType = (httpCode, username) => {
 const getProfile = async (username) => {
   const endpoint = `https://api.github.com/users/${username}`;
   const resp = await fetch(endpoint, requestHeaders);
-  if (!resp.ok) {''
+  if (!resp.ok) {
     throw new Error(getErrorMessage(resp.status, username));
   }
   const profile = await resp.json();

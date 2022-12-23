@@ -31,21 +31,23 @@ const TableRow = (props) => {
     language,
     watchers,
   } = props;
-  const { login: username, avatar_url} = owner;
+  const { login: username, avatar_url } = owner;
 
   return (
     <tr>
       <td>{index + 1}</td>
       <td>
-        <Tooltip element={
-          <MoreInfo
-            created_at={created_at}
-            language={language}
-            updated_at={updated_at}
-            watchers={watchers}
-            login={username}
-          />
-        }>
+        <Tooltip
+          element={
+            <MoreInfo
+              created_at={created_at}
+              language={language}
+              updated_at={updated_at}
+              watchers={watchers}
+              login={username}
+            />
+          }
+        >
           <div className="row gap-md">
             <img
               width={32}
