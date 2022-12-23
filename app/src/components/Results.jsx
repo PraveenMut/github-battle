@@ -1,7 +1,7 @@
 import * as React from "react";
 import Loading from "./Loading";
 import ResultsCard from "./ResultsCard";
-import { battle } from "./utils/api/api";
+import { battle } from "../../utils/api/api";
 import withSearchParams from "./withSearchParams";
 
 class Results extends React.Component {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import { sunIcon, moonIcon } from "./icon";
+import { sunIcon, moonIcon } from "../../icon";
 
 const Navbar = (props) => (
   <nav className="split">
