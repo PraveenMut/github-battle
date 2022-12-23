@@ -7,7 +7,7 @@ const Navbar = (props) => (
   <nav className="split">
     <NavLink
       to="/"
-      className={({ isActive }) => "nav-link" + (isActive ? "active" : "")}
+      className={({ isActive }) => `nav-link ${(isActive && " active")}`}
     >
       GitHub Battle
     </NavLink>
@@ -15,7 +15,7 @@ const Navbar = (props) => (
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => "nav-link" + (isActive ? "active" : "")}
+          className={({ isActive }) => `nav-link ${(isActive && " active")}`}
         >
           Popular
         </NavLink>
@@ -23,7 +23,7 @@ const Navbar = (props) => (
       <li>
         <NavLink
           to="/battle"
-          className={({ isActive }) => "nav-link" + (isActive ? "active" : "")}
+          className={({ isActive }) => `nav-link ${(isActive && " active")}`}
         >
           Battle
         </NavLink>
