@@ -36,7 +36,7 @@ module.exports = {
     }),
     new Dotenv({
       systemvars: true,
-      defaults: true
+      defaults: `${path.resolve(__dirname, ".env.defaults")}`
     }),
   ],
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
