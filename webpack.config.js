@@ -34,7 +34,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "app/index.html",
     }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+      defaults: true
+    }),
   ],
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   devServer: {
